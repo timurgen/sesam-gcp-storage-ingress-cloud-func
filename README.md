@@ -1,4 +1,4 @@
-# GCP Cloud Functions to synchronize changes in a GCP cloud storage bucket into a Sesam.io node
+# GCP Cloud Functions to prepagate changes in a GCP cloud storage bucket into a Sesam.io node
 
 ### function-oncreated.go 
 
@@ -8,3 +8,26 @@ Contains cloud function code to execute with trigger type `Cloud storage` and ev
 * SESAM_PIPE_NAME - name of receiver pipe (see example in example-pipe.json)
 * SESAM_NODE_NAME - name of Sesam.io node
 * SESAM_TOKEN_SECRET - name of secret where JWT token to access the node is stored (cloud function service account must have permission to read it)
+
+#### Pipe setup
+
+To push data into Sesam an http_endpoint source pipe is needed. An exapmple provided below.
+
+```json
+{
+    "_id": "example-pipe",
+    "type": "pipe",
+    "source": {
+      "type": "http_endpoint"
+    },
+    "transform": [{
+      "type": "dtl",
+      "rules": {
+        "default": [
+          ["add", "_id", "_S.selfLink"],
+          ["copy", "*"]
+        ]
+      }
+    }]
+  }
+```
