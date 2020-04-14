@@ -1,6 +1,6 @@
 # GCP Cloud Functions to propagate changes in a GCP cloud storage bucket into a Sesam.io node
 
-**This function will not files stored in bucket before function was started**
+**This function will not synchronize files stored in the bucket before function was started**
 
 ### function-oncreated.go 
 
