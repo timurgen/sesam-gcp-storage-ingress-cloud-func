@@ -13,7 +13,7 @@ Contains cloud function code to execute with trigger type `Cloud storage` and ev
 
 #### Pipe setup
 
-To push data into Sesam an http_endpoint source pipe is needed. An exapmple provided below.
+To push data into Sesam an http_endpoint source pipe is needed. An example provided below.
 
 ```json
 {
